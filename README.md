@@ -1,21 +1,5 @@
 # CreditIQ v3 — Credit Risk Intelligence Platform
 
-**Fintech-grade credit risk analysis with server-side matplotlib/seaborn charts**
-
----
-
-## What's Fixed in v3
-
-| Issue | Fix |
-|---|---|
-| Heatmap broken | Rebuilt with seaborn `heatmap()` — lower-triangle, `RdYlBu_r`, annotated values |
-| Pairplot not matching reference | Custom grid matching seaborn pairplot exactly — histograms on diagonal, scatter off-diagonal, legend top-right |
-| Chart colour inconsistencies | All charts use unified seaborn `muted` palette |
-| `UnicodeEncodeError` (cp1252) | All emoji/unicode removed from Python print statements |
-| AI Insights always errors | Insights now computed from CSV directly — no model dependency |
-| Credit Risk Predictor | Removed entirely as requested |
-| Charts not seaborn style | All charts rendered server-side with native matplotlib/seaborn |
-
 ---
 
 ## Architecture
@@ -88,16 +72,6 @@ Open: **http://localhost:3000**
 
 ---
 
-### Windows one-click (Step 1 + 2)
-
-```
-Double-click start.bat
-```
-
-Then manually run `npm run dev` in frontend/.
-
----
-
 ## Dashboard Tabs
 
 | Tab | Description |
@@ -130,15 +104,3 @@ All chart endpoints return `{ "image": "<base64 PNG>", "type": "..." }`.
 
 ---
 
-## Notes on Chart Style
-
-Charts use exactly the same styling as running matplotlib/seaborn locally:
-
-```python
-sns.set_theme(style="whitegrid", palette="muted")
-```
-
-- **Background**: `#f8f9fa` axes, `white` figure
-- **Palette**: seaborn `muted` (blue, orange, green, red, purple…)
-- **Heatmap**: `RdYlBu_r`, lower triangle only, annotated
-- **Pairplot**: histograms on diagonal, scatter off-diagonal, per-group colours
